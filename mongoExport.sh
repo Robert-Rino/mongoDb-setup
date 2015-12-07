@@ -25,3 +25,10 @@ mongoexport --quiet --port 27017 -d test -q {"courseId":616} -c article_models -
 mongoexport --quiet --port 27017 -d test -q {"courseId":616} -c exercise_records -f getScore,userId,time --csv -o /home/Netxtream/api-server/csvs/routine_csv/exercise_record.csv
 #video
 mongoexport  --port 27017 -d test -q {"courseId":616} -c video_records -f action,userId --csv -o /home/Netxtream/api-server/csvs/routine_csv/video_record.csv
+#=============export with multiple query======================
+#article
+mongoexport --quiet --port 27017 -d test -q '{courseId:616,userId:123}' -c article_models -f action,userId,courseId,time  --csv -o /home/Netxtream/api-server/csvs/routine_csv/article_record.csv
+#exercise
+mongoexport --quiet --port 27017 -d test -q '{courseId:616,userId:123}' -c exercise_records -f getScore,userId,time --csv -o /home/Netxtream/api-server/csvs/routine_csv/exercise_record.csv
+#video
+mongoexport  --port 27017 -d test -q '{courseId:616,userId:123}' -c video_records -f action,userId --csv -o /home/Netxtream/api-server/csvs/routine_csv/video_record.csv
