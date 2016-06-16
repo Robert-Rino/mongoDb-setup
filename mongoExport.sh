@@ -32,3 +32,7 @@ mongoexport --quiet --port 27017 -d test -q '{courseId:616,userId:123}' -c artic
 mongoexport --quiet --port 27017 -d test -q '{courseId:616,userId:123}' -c exercise_records -f getScore,userId,time --csv -o /home/Netxtream/api-server/csvs/routine_csv/exercise_record.csv
 #video
 mongoexport  --port 27017 -d test -q '{courseId:616,userId:123}' -c video_records -f action,userId --csv -o /home/Netxtream/api-server/csvs/routine_csv/video_record.csv
+#cloud with time
+mongoexport  --host xxxx --port 27017 -d test -q '{courseId:848,time:{"$gte":{"$date":"2016-05-22T20:10:00.00Z"}}}' -c video_records -f userId,videoId,action,time --type=csv -o ./848video.csv
+
+
